@@ -8,7 +8,7 @@ interface Person {
 @Component({
   name: 'List',
   created(): void {
-    window.console.log('List is created');
+    // window.console.log('List is created');
   },
 })
 export default class List extends Vue {
