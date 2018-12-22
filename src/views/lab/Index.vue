@@ -6,7 +6,7 @@
       </el-header>
       <el-container>
         <el-aside style="width: 25%">
-          <router-view name="asideMenu"></router-view>
+          <router-view name="IndexAsideMenu"></router-view>
         </el-aside>
         <el-main>
           <router-view></router-view>

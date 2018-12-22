@@ -44,7 +44,7 @@ export default new Router({
           name: 'labList',
           components: {
             default: () => import('./views/lab/list/List.vue'),
-            asideMenu: () => import('./views/lab/IndexAsideMenu.vue'),
+            IndexAsideMenu: () => import('./views/lab/IndexAsideMenu.vue'),
           },
         },
       ],
