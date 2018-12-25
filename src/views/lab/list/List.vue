@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>this is {{ componentName }} vue component</h1>
-    <p>
-      {{ msg }}
-    </p>
+    <div class="header">
+      <h1>this is {{ componentName }} vue component</h1>
+      <p>
+        {{ msg }}
+      </p>
+    </div>
     <el-table :data="list">
       <el-table-column label="PageInfo" prop="pageInfo" 
         align="center" min-max="70"></el-table-column>
@@ -23,3 +25,8 @@
 </template>
 
 <script src="./list.ts" lang="ts"></script>
+
+<style lang="stylus" scoped>
+.header
+  text-align left
+</style>
