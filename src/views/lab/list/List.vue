@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list">
     <div class="header">
       <h1>this is {{ componentName }} vue component</h1>
       <p>
@@ -17,8 +17,8 @@
       <el-table-column label="Age" prop="age" align="center" min-width="100"></el-table-column>
     </el-table>
     <el-pagination 
-    @current-change="pageSwitch"
-    :total="total" :current-page="page" :page-size="pageSize"></el-pagination>
+      @current-change="pageSwitch"
+      :total="total" :current-page="page" :page-size="pageSize"></el-pagination>
     <br />
     <el-button @click="sendPost">post</el-button>
   </div>
@@ -27,6 +27,6 @@
 <script src="./list.ts" lang="ts"></script>
 
 <style lang="stylus" scoped>
-.header
-  text-align left
+.list
+  text-align center
 </style>
