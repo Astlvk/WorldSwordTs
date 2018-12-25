@@ -5,7 +5,7 @@
         <h1>{{ msg }}</h1>
       </el-header>
       <el-container>
-        <el-aside style="width: 25%">
+        <el-aside style="width: 20%">
           <router-view name="IndexAsideMenu"></router-view>
         </el-aside>
         <el-main>
