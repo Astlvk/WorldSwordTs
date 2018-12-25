@@ -13,11 +13,12 @@ interface Person {
   },
 })
 export default class List extends Vue {
+  private componentName: string | undefined = this.$options.name;
+  private msg: string = 'message';
   private total: number = 0;
   private page: number = 1;
   private pageSize: number = 0;
   private list: any[] = [];
-  private msg: string = 'message';
   /**
    * mounted
    */

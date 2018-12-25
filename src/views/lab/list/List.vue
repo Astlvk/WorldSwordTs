@@ -1,10 +1,12 @@
 <template>
   <div>
-    <h1>this is vue component</h1>
+    <h1>this is {{ componentName }} vue component</h1>
     <p>
       {{ msg }}
     </p>
     <el-table :data="list">
+      <el-table-column label="PageInfo" prop="pageInfo" 
+        align="center" min-max="70"></el-table-column>
       <el-table-column label="Guid" prop="guid" 
         :show-overflow-tooltip="true"
         align="center" min-width="100"></el-table-column>
