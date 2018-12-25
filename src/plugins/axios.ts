@@ -7,6 +7,7 @@ import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const config: AxiosRequestConfig = {
+  baseURL: 'https://easy-mock.com/mock/5c0e283020e3956ecb888792/',
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
