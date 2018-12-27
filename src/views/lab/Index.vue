@@ -1,8 +1,10 @@
 <template>
   <div>
       <el-container>
-        <el-aside style="width: 20%">
+        <el-aside>
+          <div class="aside-container">
           <router-view name="IndexAsideMenu"></router-view>
+          </div>
         </el-aside>
         <el-main>
           <el-header>
@@ -22,3 +24,19 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class Index extends Vue {}
 </script>
+
+<style lang="stylus" scoped>
+.aside-container
+    -webkit-transition: width .28s;
+    transition: width .28s;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+</style>
+
