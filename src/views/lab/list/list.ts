@@ -19,16 +19,35 @@ export default class List extends Vue {
   private page: number = 1;
   private pageSize: number = 0;
   private list: any[] = [];
+  private searchData: any = {
+   searchText: '',
+  };
   /**
    * mounted
    */
   public mounted(): void {
-    this.getList({page: this.page});
+    this.getList();
+  }
+  /**
+   * search
+   */
+  public search(): void {
+    this.page = 1;
+    this.getList();
   }
   /**
    * 获取列表
    */
-  public async getList(query: any): Promise<any> {
+  public async getList(): Promise<any> {
+    const query: any = { page: this.page };
+    for (const key in this.searchData) {
+      if (this.searchData.hasOwnProperty(key)) {
+        const element = this.searchData[key];
+        if (element !== '') {
+          query[key] = element;
+        }
+      }
+    }
     const res = await getList(query);
     const data = res.data;
     this.list = data.results;
@@ -41,7 +60,7 @@ export default class List extends Vue {
    */
   public pageSwitch(page: number): void {
     this.page = page;
-    this.getList({page: this.page});
+    this.getList();
   }
   public sendPost(): void {
     this.msg = 'hello ts...';
