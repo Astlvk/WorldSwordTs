@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <div>
       <p>
         If Element is successfully added to this project, you'll see an
@@ -18,12 +18,21 @@
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component({
+  name: 'MainContainer',
+})
+export default class MainContainer extends Vue {}
+</script>
+
 <style lang="stylus">
-#app
+.main-container
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  // text-align center
+  text-align center
   color #2c3e50
 
 #nav
