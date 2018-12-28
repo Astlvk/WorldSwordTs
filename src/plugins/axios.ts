@@ -23,7 +23,8 @@ const cancelPending = (key: string, cancel: Canceler, pendings: string[]) => {
   }
 };
 
-const removePending = (key: string, pendings: string[]) => {
+const removePending = (cfg: AxiosRequestConfig, pendings: string[]) => {
+  const key: string = cfg.url! + '&' + cfg.method!;
   const index = pendings.findIndex((item: string) => {
     return item === key;
   });
@@ -61,12 +62,15 @@ Axios.interceptors.response.use(
   (res) => {
     // Do something with response data
     const cfg: AxiosRequestConfig = res.config;
-    const key: string = cfg.url! + '&' + cfg.method!;
-    removePending(key, pendingList);
+    removePending(cfg, pendingList);
     return res;
   },
   (err) => {
     // Do something with response error
+    const cfg: AxiosRequestConfig = err.config;
+    if (cfg !== undefined) {
+      removePending(cfg, pendingList);
+    }
     return Promise.reject(err);
   },
 );
