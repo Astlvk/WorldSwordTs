@@ -48,12 +48,16 @@ export default class List extends Vue {
         }
       }
     }
-    const res = await getList(query);
-    const data = res.data;
-    this.list = data.results;
-    this.total = data.count;
-    this.page = data.page;
-    this.pageSize = data.page_size;
+    try {
+      const res = await getList(query);
+      const data = res.data;
+      this.list = data.results;
+      this.total = data.count;
+      this.page = data.page;
+      this.pageSize = data.page_size;
+    } catch (error) {
+      window.console.error(error);
+    }
   }
   /**
    * 分页请求
