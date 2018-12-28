@@ -46,10 +46,7 @@ Axios.interceptors.request.use(
     // Do something before request is sent
     const source: CancelTokenSource = CancelToken.source();
     cfg.cancelToken = source.token;
-    const baseURL = cfg.baseURL === undefined ? '' : cfg.baseURL;
-    const url = cfg.url === undefined ? '' : cfg.url;
-    const method = cfg.method === undefined ? '' : cfg.method;
-    const key: string = baseURL + url + '&' + method;
+    const key: string = cfg.baseURL! + cfg.url! + '&' + cfg.method!;
     cancelPending(key, source.cancel, pendingList);
     return cfg;
   },
@@ -64,7 +61,7 @@ Axios.interceptors.response.use(
   (res) => {
     // Do something with response data
     const cfg: AxiosRequestConfig = res.config;
-    const key: string = cfg.url + '&' + cfg.method;
+    const key: string = cfg.url! + '&' + cfg.method!;
     removePending(key, pendingList);
     return res;
   },
