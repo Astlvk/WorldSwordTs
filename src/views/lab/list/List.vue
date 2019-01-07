@@ -36,7 +36,8 @@
   </div>
 </template>
 
-<script src="./list.ts" lang="ts"></script>
+<script src="./list.ts" lang="ts">
+</script>
 
 <style lang="stylus" scoped>
 .list
