@@ -16,7 +16,7 @@ function getDataByCache(url: string, query: object, callBack: (res: AxiosRespons
     callBack(cacheMap.get(url));
   }
   // 发起请求，更新缓存，调用回调
-  request.get(url, query).then((res) => {
+  request.get(url, {params: query}).then((res) => {
     cacheMap.set(url, res);
     callBack(cacheMap.get(url));
   });
