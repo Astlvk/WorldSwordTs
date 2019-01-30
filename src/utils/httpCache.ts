@@ -24,6 +24,6 @@ function getDataByCache(url: string, query: object, callBack: (res: AxiosRespons
 
 export {
   cacheMap,
-  getDataByCache,
+  getDataByCache as GetdataByCache,
 };
 
