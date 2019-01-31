@@ -1,7 +1,8 @@
 import Vue, { PluginObject } from 'vue';
+import { Message } from 'element-ui';
 import axios, {
   AxiosRequestConfig, AxiosInstance, CancelToken,
-  CancelTokenStatic, CancelTokenSource, Canceler, Cancel,
+  CancelTokenStatic, CancelTokenSource, Canceler, Cancel, AxiosError,
 } from 'axios';
 
 // Full config:  https://github.com/axios/axios#request-config
@@ -51,7 +52,7 @@ Axios.interceptors.request.use(
     cancelPending(key, source.cancel, pendingList);
     return cfg;
   },
-  (err) => {
+  (err: AxiosError) => {
     // Do something with request error
     return Promise.reject(err);
   },
@@ -65,11 +66,22 @@ Axios.interceptors.response.use(
     removePending(cfg, pendingList);
     return res;
   },
-  (err) => {
+  (err: AxiosError) => {
     // Do something with response error
     const cfg: AxiosRequestConfig = err.config;
     if (cfg !== undefined) {
       removePending(cfg, pendingList);
+    }
+    // 统一错误处理
+    const msg = err.message;
+    if (msg === 'Network Error') {
+      // 网络错误
+      Message.error(msg);
+    } else if (msg.indexOf('timeout') !== -1) {
+      // 请求超时
+      Message.error(msg);
+    } else if (err && err.response) {
+      // 400
     }
     return Promise.reject(err);
   },
