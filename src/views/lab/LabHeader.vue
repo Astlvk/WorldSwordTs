@@ -12,7 +12,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'LabHeader',
 })
-export default class IndexHeader extends Vue {
+export default class LabHeader extends Vue {
   private msg: string = 'This is Lab root';
 }
 </script>

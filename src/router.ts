@@ -36,15 +36,15 @@ export default new Router({
       path: '/lab',
       redirect: 'lab/list',
       name: 'lab',
-      component: () => import('./views/lab/Index.vue'),
+      component: () => import('./views/lab/Lab.vue'),
       children: [
         {
           path: 'list',
           name: 'labList',
           components: {
             default: () => import('./views/lab/list/List.vue'),
-            IndexHeader: () => import('./views/lab/IndexHeader.vue'),
-            IndexAsideMenu: () => import('./views/lab/IndexAsideMenu.vue'),
+            LabHeader: () => import('./views/lab/LabHeader.vue'),
+            LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
           },
         },
       ],

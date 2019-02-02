@@ -4,20 +4,20 @@
       default-active="1-3"
       class="el-menu-vertical-demo">
       <!-- <router-view name=""></router-view> -->
-      <IndexAsideMenuItem></IndexAsideMenuItem>
+      <LabAsideMenuItem></LabAsideMenuItem>
     </el-menu>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import IndexAsideMenuItem from './IndexAsideMenuItem.vue';
+import LabAsideMenuItem from './LabAsideMenuItem.vue';
 
 @Component({
-  name: 'IndexAsideMenu',
+  name: 'LabAsideMenu',
   components: {
-    IndexAsideMenuItem,
+    LabAsideMenuItem,
   },
 })
-export default class IndexAsideMenu extends Vue {}
+export default class LabAsideMenu extends Vue {}
 </script>

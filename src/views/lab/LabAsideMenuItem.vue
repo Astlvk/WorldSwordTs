@@ -23,7 +23,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  name: 'IndexAsideMenuItem',
+  name: 'LabAsideMenuItem',
 })
-export default class IndexAsideMenuItem extends Vue {}
+export default class LabAsideMenuItem extends Vue {}
 </script>

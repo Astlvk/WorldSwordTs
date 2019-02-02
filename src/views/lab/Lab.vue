@@ -2,11 +2,11 @@
   <div>
       <el-container>
         <el-aside width="20%">
-          <router-view name="IndexAsideMenu"></router-view>
+          <router-view name="LabAsideMenu"></router-view>
         </el-aside>
         <el-main>
           <el-header>
-            <router-view name="IndexHeader"></router-view>
+            <router-view name="LabHeader"></router-view>
           </el-header>
           <router-view></router-view>
         </el-main>
@@ -20,7 +20,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'Lab',
 })
-export default class Index extends Vue {}
+export default class Lab extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
