@@ -1,10 +1,8 @@
 <template>
   <div>
       <el-container>
-        <el-aside>
-          <div class="aside-container">
+        <el-aside width="20%">
           <router-view name="IndexAsideMenu"></router-view>
-          </div>
         </el-aside>
         <el-main>
           <el-header>
