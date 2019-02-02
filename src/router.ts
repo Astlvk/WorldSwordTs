@@ -47,6 +47,11 @@ export default new Router({
             LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
           },
         },
+        {
+          path: 'test',
+          name: 'test',
+          component: () => import('./views/lab/Test.vue'),
+        },
       ],
     },
   ],
