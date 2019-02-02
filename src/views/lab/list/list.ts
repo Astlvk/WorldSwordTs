@@ -8,9 +8,6 @@ interface Person {
 
 @Component({
   name: 'List',
-  created(): void {
-    // window.console.log('List is created');
-  },
 })
 export default class List extends Vue {
   private componentName: string | undefined = this.$options.name;
@@ -20,25 +17,28 @@ export default class List extends Vue {
   private pageSize: number = 0;
   private list: any[] = [];
   private searchData: any = {
-   searchText: '',
+    searchText: '',
   };
+  private created(): void {
+    // window.console.log('List is created');
+  }
   /**
    * mounted
    */
-  public mounted(): void {
+  private mounted(): void {
     this.getList();
   }
   /**
    * search
    */
-  public search(): void {
+  private search(): void {
     this.page = 1;
     this.getList();
   }
   /**
    * 获取列表
    */
-  public async getList(): Promise<any> {
+  private async getList(): Promise<any> {
     const query: any = { page: this.page };
     for (const key in this.searchData) {
       if (this.searchData.hasOwnProperty(key)) {
@@ -69,11 +69,11 @@ export default class List extends Vue {
   /**
    * 分页请求
    */
-  public pageSwitch(page: number): void {
+  private pageSwitch(page: number): void {
     this.page = page;
     this.getList();
   }
-  public sendPost(): void {
+  private sendPost(): void {
     this.msg = 'hello ts...';
     window.console.log(this);
   }
