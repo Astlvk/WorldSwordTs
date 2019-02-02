@@ -8,7 +8,7 @@
           <el-header>
             <router-view name="LabHeader"></router-view>
           </el-header>
-          <router-view></router-view>
+          <router-view name="LabContainer"></router-view>
         </el-main>
       </el-container>
   </div>

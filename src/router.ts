@@ -34,24 +34,44 @@ export default new Router({
     },
     {
       path: '/lab',
-      redirect: 'lab/list',
       name: 'lab',
       component: () => import('./views/lab/Lab.vue'),
       children: [
         {
-          path: 'list',
-          name: 'labList',
+          path: '',
+          redirect: 'list',
           components: {
-            default: () => import('./views/lab/list/List.vue'),
+            LabContainer: () => import('./views/lab/LabContainer.vue'),
             LabHeader: () => import('./views/lab/LabHeader.vue'),
             LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
           },
+          children: [
+            {
+              path: 'list',
+              name: 'labList',
+              component: () => import('./views/lab/list/List.vue'),
+            },
+            {
+              path: 'test',
+              name: 'test',
+              component: () => import('./views/lab/Test.vue'),
+            },
+          ],
         },
-        {
-          path: 'test',
-          name: 'test',
-          component: () => import('./views/lab/Test.vue'),
-        },
+        // {
+        //   path: 'list',
+        //   name: 'labList',
+        //   components: {
+        //     default: () => import('./views/lab/list/List.vue'),
+        //     LabHeader: () => import('./views/lab/LabHeader.vue'),
+        //     LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
+        //   },
+        // },
+        // {
+        //   path: 'test',
+        //   name: 'test',
+        //   component: () => import('./views/lab/Test.vue'),
+        // },
       ],
     },
   ],
