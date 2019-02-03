@@ -34,11 +34,12 @@ export default new Router({
     },
     {
       path: '/lab',
-      name: 'lab',
+      // name: 'lab',
       component: () => import('./views/lab/Lab.vue'),
       children: [
         {
           path: '',
+          name: 'lab',
           redirect: 'list',
           components: {
             LabContainer: () => import('./views/lab/LabContainer.vue'),
