@@ -4,6 +4,13 @@ class UserMenu {
   private path: string = '';
   private children: UserMenu[] = [];
 
+  constructor($icon: string , $title: string , $path: string , $children: UserMenu[] ) {
+    this.icon = $icon;
+    this.title = $title;
+    this.path = $path;
+    this.children = $children;
+  }
+
   public get getIcon() {
     return this.icon;
   }
