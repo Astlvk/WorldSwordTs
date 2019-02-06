@@ -20,10 +20,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import UserMenu from '@/entity/lab/UserMenu';
 
 @Component({
   name: 'LabAsideMenuItem',
 })
-export default class LabAsideMenuItem extends Vue {}
+export default class LabAsideMenuItem extends Vue {
+  @Prop({type: Array, default: []})
+  private menus!: UserMenu[];
+
+  public created(): void {
+    window.console.log(this.menus);
+  }
+}
 </script>
