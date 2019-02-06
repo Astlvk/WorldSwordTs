@@ -22,6 +22,7 @@ export default class List extends Vue {
   private created(): void {
     // window.console.log('List is created');
   }
+
   /**
    * mounted
    */
