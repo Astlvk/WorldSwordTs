@@ -1,7 +1,8 @@
 <template>
   <div>
     <el-menu
-      default-active="1-3"
+      :default-active="$route.path"
+      :router="true"
       class="el-menu-vertical-demo">
       <!-- <router-view name=""></router-view> -->
       <LabAsideMenuItem :menus="menus"></LabAsideMenuItem>
