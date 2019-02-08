@@ -33,7 +33,7 @@ export default class LabAsideMenuItem extends Vue {
   private menus!: UserMenu[];
 
   public created(): void {
-    window.console.log(this.menus);
+    // window.console.log(this.menus);
   }
 }
 </script>
