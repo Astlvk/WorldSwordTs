@@ -3,14 +3,14 @@
     <div v-for="(menu, index) in menus" :key="index">
       <el-menu-item v-if="menu.children === null || menu.children.length === 0" 
         :index="menu.path">
-        <i v-if="menu.icon !== null && menu.icon !== ''" 
-          :class="menu.icon"></i>
+        <svg-icon v-if="menu.icon !== null && menu.icon !== ''" 
+          :name="menu.icon" class="icon"></svg-icon>
         <span>{{ menu.title }}</span>
       </el-menu-item>
       <el-submenu v-else :index="menu.path">
         <template slot="title">
-          <i v-if="menu.icon !== null && menu.icon !== ''" 
-            :class="menu.icon"></i>
+          <svg-icon v-if="menu.icon !== null && menu.icon !== ''" 
+            :name="menu.icon" class="icon"></svg-icon>
           <span>{{ menu.title }}</span>
         </template>
         <template v-if="menu.children !== null && menu.children.length > 0">
@@ -37,3 +37,9 @@ export default class LabAsideMenuItem extends Vue {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.icon
+  margin-right: 7px;
+</style>
+
