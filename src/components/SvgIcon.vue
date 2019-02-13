@@ -4,20 +4,19 @@
 	</svg>
 </template>
 
-<script>
-export default {
-	name: 'Svg-icon',
-	props: {
-		name: {
-			type: String,
-			required: true,
-		},
-	},
-	computed: {
-		iconName () {
-			return `#icon-${this.name}`
-		},
-	},
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component({
+  name: 'SvgIcon',
+})
+export default class SvgIcon extends Vue {
+  @Prop({type: String, required: true})
+  private name!: string;
+
+  public get iconName(): string {
+    return `#icon-${this.name}`;
+  }
 }
 </script>
 
