@@ -4,7 +4,7 @@
         <el-aside width="200px" style="background-color: #545c64;">
           <router-view name="LabAsideMenu"></router-view>
         </el-aside>
-        <el-container>
+        <el-container style="height: 100vh">
           <el-header>
             <router-view name="LabHeader"></router-view>
           </el-header>
@@ -26,6 +26,8 @@ export default class Lab extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
+// .main
+//   height: calc(100vh - 60px);
 .aside-container
     -webkit-transition: width .28s;
     transition: width .28s;
