@@ -1,10 +1,10 @@
 <template>
   <div>
       <el-container>
-        <el-aside width="200px" style="background-color: #545c64;">
+        <el-aside width="200px" class="aside-container">
           <router-view name="LabAsideMenu"></router-view>
         </el-aside>
-        <el-container style="height: 100vh">
+        <el-container class="main-container">
           <el-header>
             <router-view name="LabHeader"></router-view>
           </el-header>
@@ -26,19 +26,21 @@ export default class Lab extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
-// .main
-//   height: calc(100vh - 60px);
+aside-width = 200px;
+.main-container
+  height: 100vh;
+  margin-left: aside-width;
 .aside-container
-    -webkit-transition: width .28s;
-    transition: width .28s;
-    width: 20%;
-    height: 100%;
-    position: fixed;
-    font-size: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1001;
-    overflow: hidden;
+  background-color: #545c64;
+  -webkit-transition: width .28s;
+  transition: width .28s;
+  height: 100%;
+  position: fixed;
+  font-size: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  // overflow: hidden;
 </style>
 
