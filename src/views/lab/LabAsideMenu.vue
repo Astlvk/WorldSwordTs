@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-scrollbar style="height: 100%;">
     <el-menu
       :default-active="$route.path"
       :router="true"
@@ -10,7 +10,7 @@
       <!-- <router-view name=""></router-view> -->
       <LabAsideMenuItem :menus="menus"></LabAsideMenuItem>
     </el-menu>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script lang="ts">
