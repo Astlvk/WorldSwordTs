@@ -1,15 +1,17 @@
 <template>
   <div>
       <el-container>
-        <el-aside width="20%">
+        <el-aside width="200px" style="background-color: #545c64;">
           <router-view name="LabAsideMenu"></router-view>
         </el-aside>
-        <el-main>
+        <el-container>
           <el-header>
             <router-view name="LabHeader"></router-view>
           </el-header>
-          <router-view name="LabContainer"></router-view>
-        </el-main>
+          <el-main>
+            <router-view name="LabContainer"></router-view>
+          </el-main>
+        </el-container>
       </el-container>
   </div>
 </template>
