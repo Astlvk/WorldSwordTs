@@ -3,7 +3,10 @@
     <el-menu
       :default-active="$route.path"
       :router="true"
-      class="el-menu-vertical-demo">
+      class="el-menu-vertical-demo"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
       <!-- <router-view name=""></router-view> -->
       <LabAsideMenuItem :menus="menus"></LabAsideMenuItem>
     </el-menu>
@@ -35,3 +38,9 @@ export default class LabAsideMenu extends Vue {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.el-menu
+  border-right: 0px;
+</style>
+
