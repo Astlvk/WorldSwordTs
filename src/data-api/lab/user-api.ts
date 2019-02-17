@@ -20,6 +20,13 @@ export function getMenu(): UserMenu[] {
         new UserMenu('', '测试子节点4-2', '/lab/ts22', []),
       ]),
     ]),
+    new UserMenu('list', 'Hello Wind', 'Hello Wind/lab/tss', [
+      new UserMenu('', '测试子节点3', '/lab/ts1', []),
+      new UserMenu('', '测试子节点4', '测试子节点3/lab/ts2', [
+        new UserMenu('', '测试子节点4-1', '/lab/ts11', []),
+        new UserMenu('', '测试子节点4-2', '/lab/ts22', []),
+      ]),
+    ]),
   ];
   return menuArr;
 }
