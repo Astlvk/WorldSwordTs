@@ -28,7 +28,7 @@ import LabContainer from './LabContainer.vue';
     LabAsideMenu,
     LabHeader,
     LabContainer,
-  }
+  },
 })
 export default class Lab extends Vue {}
 </script>
