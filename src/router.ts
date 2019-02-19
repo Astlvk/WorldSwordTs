@@ -57,22 +57,13 @@ export default new Router({
               name: 'test',
               component: () => import('./views/lab/Test.vue'),
             },
+            {
+              path: 'menu',
+              name: 'menuController',
+              component: () => import('./views/lab/menu-controller/MenuController.vue'),
+            },
           ],
         },
-        // {
-        //   path: 'list',
-        //   name: 'labList',
-        //   components: {
-        //     default: () => import('./views/lab/list/List.vue'),
-        //     LabHeader: () => import('./views/lab/LabHeader.vue'),
-        //     LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
-        //   },
-        // },
-        // {
-        //   path: 'test',
-        //   name: 'test',
-        //   component: () => import('./views/lab/Test.vue'),
-        // },
       ],
     },
   ],
