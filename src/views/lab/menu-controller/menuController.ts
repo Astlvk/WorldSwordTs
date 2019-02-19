@@ -22,9 +22,11 @@ export default class MenuController extends Vue {
         children: [{
           id: 9,
           label: '三级 1-1-1',
+          children: undefined,
         }, {
           id: 10,
           label: '三级 1-1-2',
+          children: undefined,
         }],
       }],
     },
@@ -34,9 +36,11 @@ export default class MenuController extends Vue {
       children: [{
         id: 5,
         label: '二级 2-1',
+        children: undefined,
       }, {
         id: 6,
         label: '二级 2-2',
+        children: undefined,
       }],
     },
     {
@@ -45,9 +49,11 @@ export default class MenuController extends Vue {
       children: [{
         id: 7,
         label: '二级 3-1',
+        children: undefined,
       }, {
         id: 8,
         label: '二级 3-2',
+        children: undefined,
       }],
     },
   ];
