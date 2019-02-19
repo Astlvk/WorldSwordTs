@@ -2,14 +2,14 @@
   <div>
       <el-container>
         <el-aside width="200px" class="aside-container">
-          <router-view name="LabAsideMenu"></router-view>
+          <LabAsideMenu name="LabAsideMenu"></LabAsideMenu>
         </el-aside>
         <el-container class="main-container">
           <el-header>
-            <router-view name="LabHeader"></router-view>
+            <LabHeader name="LabHeader"></LabHeader>
           </el-header>
           <el-main>
-            <router-view name="LabContainer"></router-view>
+            <LabContainer name="LabContainer"></LabContainer>
           </el-main>
         </el-container>
       </el-container>
@@ -18,9 +18,17 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import LabHeader from './LabHeader.vue';
+import LabAsideMenu from './LabAsideMenu.vue';
+import LabContainer from './LabContainer.vue';
 
 @Component({
   name: 'Lab',
+  components: {
+    LabAsideMenu,
+    LabHeader,
+    LabContainer,
+  }
 })
 export default class Lab extends Vue {}
 </script>

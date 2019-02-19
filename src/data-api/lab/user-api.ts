@@ -6,7 +6,7 @@ export function getMenu(): UserMenu[] {
   const menuArr: UserMenu[] = [
     new UserMenu('chart', 'List', '/lab/list', []),
     new UserMenu('bug', 'Test', '/lab/test', []),
-    new UserMenu('tree', 'Menu', '/lab/menu', []),
+    new UserMenu('tree', 'Menu', '/lab/menu/controller', []),
     new UserMenu('edit', 'TestChildren', 'TestChildren/lab/ts', [
       new UserMenu('', '测试子节点1', '/lab/ts1', []),
       new UserMenu('', '测试子节点2', '测试子节点2/lab/ts2', [

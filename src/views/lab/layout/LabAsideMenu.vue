@@ -7,7 +7,6 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <!-- <router-view name=""></router-view> -->
       <LabAsideMenuItem :menus="menus"></LabAsideMenuItem>
     </el-menu>
   </el-scrollbar>

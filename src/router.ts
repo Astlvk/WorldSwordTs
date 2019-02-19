@@ -34,35 +34,24 @@ export default new Router({
     },
     {
       path: '/lab',
-      // name: 'lab',
-      component: () => import('./views/lab/Lab.vue'),
+      name: 'lab',
+      redirect: 'list',
+      component: () => import('./views/lab/layout/Lab.vue'),
       children: [
         {
-          path: '',
-          name: 'lab',
-          redirect: 'list',
-          components: {
-            LabContainer: () => import('./views/lab/LabContainer.vue'),
-            LabHeader: () => import('./views/lab/LabHeader.vue'),
-            LabAsideMenu: () => import('./views/lab/LabAsideMenu.vue'),
-          },
-          children: [
-            {
-              path: 'list',
-              name: 'labList',
-              component: () => import('./views/lab/list/List.vue'),
-            },
-            {
-              path: 'test',
-              name: 'test',
-              component: () => import('./views/lab/Test.vue'),
-            },
-            {
-              path: 'menu',
-              name: 'menuController',
-              component: () => import('./views/lab/menu-controller/MenuController.vue'),
-            },
-          ],
+          path: 'list',
+          name: 'labList',
+          component: () => import('./views/lab/list/List.vue'),
+        },
+        {
+          path: 'test',
+          name: 'test',
+          component: () => import('./views/lab/Test.vue'),
+        },
+        {
+          path: 'menu/controller',
+          name: 'menuController',
+          component: () => import('./views/lab/menu-controller/MenuController.vue'),
         },
       ],
     },
