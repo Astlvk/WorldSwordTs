@@ -53,6 +53,11 @@ export default new Router({
           name: 'menuController',
           component: () => import('./views/lab/menu-controller/MenuController.vue'),
         },
+        {
+          path: 'components/drag',
+          name: 'drag',
+          component: () => import('./views/lab/dragDialog.vue'),
+        },
       ],
     },
   ],

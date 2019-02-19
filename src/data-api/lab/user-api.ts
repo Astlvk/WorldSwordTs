@@ -38,6 +38,9 @@ export function getMenuByHttp(): Promise<UserMenu[]> {
       new UserMenu('chart', 'List', '/lab/list', []),
       new UserMenu('bug', 'Test', '/lab/test', []),
       new UserMenu('tree', 'Menu', '/lab/menu/controller', []),
+      new UserMenu('component', 'Components', '/lab/components', [
+        new UserMenu('', 'Drag', '/lab/components/drag', []),
+      ]),
     ]);
   });
 }
