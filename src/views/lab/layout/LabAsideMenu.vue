@@ -28,12 +28,17 @@ export default class LabAsideMenu extends Vue {
   private menus: UserMenu[] = [];
   private test: string = 'hi wind';
 
-  public created(): void {
-    this.menus = this.getMenu();
+  private created(): void {
+    // this.menus = this.getMenu();
+    this.getMenuByHttp();
   }
 
-  public getMenu(): UserMenu[] {
+  private getMenu(): UserMenu[] {
     return userApi.getMenu();
+  }
+
+  private async getMenuByHttp(): Promise<void> {
+   this.menus = await userApi.getMenuByHttp();
   }
 }
 </script>

@@ -35,7 +35,9 @@ export function getMenu(): UserMenu[] {
 export function getMenuByHttp(): Promise<UserMenu[]> {
   return new Promise((resolve, reject) => {
     resolve([
-      new UserMenu('', 'Test', '/lab/test', []),
+      new UserMenu('chart', 'List', '/lab/list', []),
+      new UserMenu('bug', 'Test', '/lab/test', []),
+      new UserMenu('tree', 'Menu', '/lab/menu/controller', []),
     ]);
   });
 }
