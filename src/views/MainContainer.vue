@@ -27,7 +27,7 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class MainContainer extends Vue {}
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .main-container
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
