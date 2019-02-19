@@ -35,7 +35,7 @@ export default new Router({
     {
       path: '/lab',
       name: 'lab',
-      redirect: 'list',
+      redirect: '/lab/list',
       component: () => import('./views/lab/layout/Lab.vue'),
       children: [
         {
