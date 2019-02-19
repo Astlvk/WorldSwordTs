@@ -35,6 +35,8 @@
 </script>
 
 <style lang="stylus" scoped>
+.block
+  // padding: 0 5% 0 5%;
 .custom-tree-node
   flex: 1;
   display: flex;
