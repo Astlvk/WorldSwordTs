@@ -1,6 +1,6 @@
 import request from '../request';
 import UserMenu from '@/entity/lab/UserMenu';
-import { AxiosResponse } from 'axios';
+import { AxiosResponse, AxiosPromise } from 'axios';
 
 export function getMenu(): UserMenu[] {
   const menuArr: UserMenu[] = [
@@ -43,4 +43,8 @@ export function getMenuByHttp(): Promise<UserMenu[]> {
       ]),
     ]);
   });
+}
+
+export function getUserInfo(param: object): AxiosPromise {
+  return request.post('lab/userinfo', param);
 }

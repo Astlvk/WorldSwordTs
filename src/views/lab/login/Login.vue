@@ -23,7 +23,7 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" style="width: 100%;">Log In</el-button>
+          <el-button @click="login" type="primary" style="width: 100%;">Log In</el-button>
         </el-form-item>
       </el-form>
     </div>

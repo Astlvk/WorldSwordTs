@@ -1,4 +1,5 @@
 import { Vue, Component } from 'vue-property-decorator';
+import { getUserInfo } from '@/data-api/lab/user-api';
 
 interface UsreInfo {
   name: string;
@@ -27,5 +28,14 @@ export default class Login extends Vue {
       this.passwordType = 'password';
       this.iconName = 'eye';
     }
+  }
+
+  /**
+   * 登录函数
+   */
+  private async login(): Promise<any> {
+    const res = await getUserInfo(this.user);
+    const data = res.data;
+    window.console.log(data.token);
   }
 }
