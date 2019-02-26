@@ -14,8 +14,13 @@ export default class App extends Vue {}
 </script>
 
 <style lang="stylus">
+html
+  height: 100%;
 body
+  height: 100%;
   margin: 0px;
+#app
+  height: 100%;
 /* #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
