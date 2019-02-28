@@ -4,7 +4,7 @@ interface UserStatus {
   token: string | null;
 }
 
-const user: Module<UserStatus, UserStatus> = {
+const user: Module<UserStatus, StoreOptions<any>> = {
   state: {
     token: sessionStorage.getItem('token'),
   },
