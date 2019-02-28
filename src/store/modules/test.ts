@@ -1,10 +1,10 @@
-import { Module } from 'vuex';
+import { Module, StoreOptions } from 'vuex';
 
 interface TestStatus {
   str: string;
 }
 
-const test: Module<TestStatus, TestStatus> = {
+const test: Module<TestStatus, StoreOptions<any>> = {
   state: {
     str: 'default',
   },
