@@ -6,7 +6,6 @@ import './router/router-Interceptor';
 import store from './store';
 import './plugins/element.js';
 import './icons';
-import './store/CommitName';
 
 Vue.config.productionTip = false;
 
