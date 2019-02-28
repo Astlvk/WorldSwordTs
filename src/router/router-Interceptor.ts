@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import store from '@/store';
 import router from './router';
-import { Message } from 'element-ui';
+import { Message, Form } from 'element-ui';
 import { Route, RawLocation } from 'vue-router';
 
 const whiteList: string[] = ['/lab/login', '/home', '/about', '/list'];
@@ -11,7 +11,11 @@ router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((v
   // window.console.log(token);
   if (token) {
     // window.console.log(to.path);
-    next();
+    if (to.path === '/lab/login') {
+      next('/lab');
+    } else {
+      next();
+    }
   } else {
     if (whiteList.indexOf(to.path) > -1) {
       next();
