@@ -1,5 +1,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import { getUserInfo } from '@/data-api/lab/user-api';
+import { USER_SET_TOKEN } from '@/store/CommitName';
 
 interface UsreInfo {
   name: string;
@@ -42,6 +43,7 @@ export default class Login extends Vue {
     } else {
       this.$store.commit(USER_SET_TOKEN, data.token);
       sessionStorage.setItem('token', data.token);
+      this.$router.push('/lab');
     }
   }
 }
