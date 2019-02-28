@@ -37,5 +37,11 @@ export default class Login extends Vue {
     const res = await getUserInfo(this.user);
     const data = res.data;
     window.console.log(data.token);
+    if (data.token === 'no token') {
+      this.$message.error('用户名密码错误');
+    } else {
+      this.$store.commit(USER_SET_TOKEN, data.token);
+      sessionStorage.setItem('token', data.token);
+    }
   }
 }
