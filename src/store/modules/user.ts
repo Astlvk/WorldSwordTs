@@ -1,12 +1,12 @@
-import { Store, StoreOptions } from 'vuex';
+import { Store, StoreOptions, Module } from 'vuex';
 
 interface UserStatus {
   token: string | null;
 }
 
-const user: StoreOptions<UserStatus> = {
+const user: Module<UserStatus, UserStatus> = {
   state: {
-    token: '',
+    token: sessionStorage.getItem('token'),
   },
   mutations: {
     SET_TOKEN(state: UserStatus, token: string | null): void {
