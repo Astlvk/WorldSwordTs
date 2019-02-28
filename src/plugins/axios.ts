@@ -67,6 +67,7 @@ Axios.interceptors.response.use(
     return res;
   },
   (err: AxiosError) => {
+    window.console.log(err);
     // Do something with response error
     const cfg: AxiosRequestConfig = err.config;
     if (cfg !== undefined) {
