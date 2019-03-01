@@ -13,7 +13,7 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-input :type="passwordType" v-model="user.password">
+          <el-input @keyup.enter.native="login" :type="passwordType" v-model="user.password">
             <span slot="prefix" class="svg-container">
               <svg-icon name="password" />
             </span>
