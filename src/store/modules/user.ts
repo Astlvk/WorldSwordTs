@@ -1,4 +1,4 @@
-import store from '@/store';
+import store from '@/store/store';
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 import RouteMap from '@/type/lab/RouteMap';
 import { getRouteMapByHttp } from '@/data-api/lab/user-api';

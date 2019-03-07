@@ -1,4 +1,4 @@
-import store from '@/store';
+import store from '@/store/store';
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { RouteConfig } from 'vue-router';
 import RouteMap from '@/type/lab/RouteMap';
