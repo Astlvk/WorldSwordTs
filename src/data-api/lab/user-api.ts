@@ -1,47 +1,70 @@
 import request from '../request';
-import UserMenu from '@/entity/lab/UserMenu';
+import RouteMap from '@/type/lab/RouteMap';
 import { AxiosResponse, AxiosPromise } from 'axios';
 
-export function getMenu(): UserMenu[] {
-  const menuArr: UserMenu[] = [
-    new UserMenu('chart', 'List', '/lab/list', []),
-    new UserMenu('bug', 'Test', '/lab/test', []),
-    new UserMenu('tree', 'Menu', '/lab/menu/controller', []),
-    new UserMenu('edit', 'TestChildren', 'TestChildren/lab/ts', [
-      new UserMenu('', '测试子节点1', '/lab/ts1', []),
-      new UserMenu('', '测试子节点2', '测试子节点2/lab/ts2', [
-        new UserMenu('', '测试子节点2-1', '/lab/ts11', []),
-        new UserMenu('', '测试子节点2-2', '/lab/ts22', []),
-      ]),
-    ]),
-    new UserMenu('list', 'Hello Wind', 'Hello Wind/lab/tss', [
-      new UserMenu('', '测试子节点3', '/lab/ts1', []),
-      new UserMenu('', '测试子节点4', '测试子节点3/lab/ts2', [
-        new UserMenu('', '测试子节点4-1', '/lab/ts11', []),
-        new UserMenu('', '测试子节点4-2', '/lab/ts22', []),
-      ]),
-    ]),
-    new UserMenu('list', 'Hello Wind', 'Hello Wind/lab/tss', [
-      new UserMenu('', '测试子节点3', '/lab/ts1', []),
-      new UserMenu('', '测试子节点4', '测试子节点3/lab/ts2', [
-        new UserMenu('', '测试子节点4-1', '/lab/ts11', []),
-        new UserMenu('', '测试子节点4-2', '/lab/ts22', []),
-      ]),
-    ]),
-  ];
-  return menuArr;
-}
-
-export function getMenuByHttp(): Promise<UserMenu[]> {
+export function getRouteMapByHttp(): Promise<RouteMap[]> {
   return new Promise((resolve, reject) => {
-    resolve([
-      new UserMenu('chart', 'List', '/lab/list', []),
-      new UserMenu('bug', 'Test', '/lab/test', []),
-      new UserMenu('tree', 'Menu', '/lab/menu/controller', []),
-      new UserMenu('component', 'Components', '/lab/components', [
-        new UserMenu('', 'Drag', '/lab/components/drag', []),
-      ]),
-    ]);
+    const routeMap: RouteMap[] = [
+      {
+        title: 'List',
+        icon: 'chart',
+        name: 'LabList',
+        path: '/list',
+        alwaysShow: false,
+        component: 'list/List',
+        children: null,
+      },
+      {
+        title: 'Test',
+        icon: 'bug',
+        name: 'LabTest',
+        path: '/test',
+        alwaysShow: false,
+        component: 'Test',
+        children: null,
+      },
+      {
+        title: 'Menu',
+        icon: 'tree',
+        name: 'LabMenu',
+        path: '/menu',
+        redirect: '/menu/controller',
+        alwaysShow: false,
+        component: 'layout/LabMiddle',
+        children: [
+          {
+            title: 'Menu',
+            icon: 'tree',
+            name: 'LabMenuController',
+            path: 'controller',
+            alwaysShow: false,
+            component: 'menu/Controller',
+            children: null,
+          },
+        ],
+      },
+      {
+        title: 'Components',
+        icon: 'component',
+        name: 'LabComponents',
+        path: '/components',
+        redirect: '/components/drag',
+        alwaysShow: false,
+        component: 'layout/LabMiddle',
+        children: [
+          {
+            title: 'Drag',
+            icon: 'component',
+            name: 'LabComponentsDrag',
+            path: 'drag',
+            alwaysShow: false,
+            component: 'components/DragDialog',
+            children: null,
+          },
+        ],
+      },
+    ];
+    resolve(routeMap);
   });
 }
 

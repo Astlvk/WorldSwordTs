@@ -1,6 +1,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 import { getUserInfo } from '@/data-api/lab/user-api';
-import { USER_SET_TOKEN } from '@/store/CommitName';
+import UserState from '@/store/modules/User';
+import { getModule } from 'vuex-module-decorators';
 
 interface UsreInfo {
   name: string;
@@ -40,9 +41,10 @@ export default class Login extends Vue {
     if (data.token === 'no token') {
       this.$message.error('用户名密码错误');
     } else {
-      this.$store.commit(USER_SET_TOKEN, data.token);
+      // login success
+      getModule(UserState).SET_TOKEN(data.token);
       sessionStorage.setItem('token', data.token);
-      this.$router.push('/lab');
+      this.$router.push('/');
     }
   }
 }

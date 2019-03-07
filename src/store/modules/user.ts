@@ -1,27 +1,29 @@
-import { Store, StoreOptions, Module } from 'vuex';
-import UserMenu from '@/entity/lab/UserMenu';
+import store from '@/store';
+import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
+import RouteMap from '@/type/lab/RouteMap';
+import { getRouteMapByHttp } from '@/data-api/lab/user-api';
 
-interface UserStatus {
-  token: string | null;
-  userMenu: UserMenu | null;
+// @Module
+// @Module({ store, name: 'userState'})
+@Module({ dynamic: true, store, name: 'userState' })
+export default class UserState extends VuexModule {
+  public token: string | null = sessionStorage.getItem('token');
+  public routeMap: RouteMap[] | null = null;
+
+  @Mutation
+  public SET_TOKEN(token: string): void {
+    this.token = token;
+  }
+
+  @Mutation
+  public SET_USER_MENUS(routeMap: RouteMap[]): void {
+    this.routeMap = routeMap;
+  }
+
+  @Action
+  public async GetUserRouteMap(): Promise<RouteMap[] | null> {
+    const res = await getRouteMapByHttp();
+    this.SET_USER_MENUS(res);
+    return res;
+  }
 }
-
-const user: Module<UserStatus, StoreOptions<any>> = {
-  state: {
-    token: sessionStorage.getItem('token'),
-    userMenu: null,
-  },
-  mutations: {
-    SET_TOKEN(state: UserStatus, token: string | null): void {
-      state.token = token;
-    },
-    SET_USER_MENU(statue: UserStatus, userMenu: UserMenu | null): void {
-      statue.userMenu = userMenu;
-    },
-  },
-  actions: {
-
-  },
-};
-
-export default user;

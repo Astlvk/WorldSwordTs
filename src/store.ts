@@ -1,15 +1,13 @@
 import Vue from 'vue';
-import Vuex, { ModuleTree } from 'vuex';
-import user from './store/modules/user';
-import test from './store/modules/test';
+import Vuex from 'vuex';
+// import user from '@/store/modules/User';
+// import permission from '@/store/modules/Permission';
 
 Vue.use(Vuex);
 
-const modules: ModuleTree<any> = {
-  user,
-  test,
-};
-
 export default new Vuex.Store({
-  modules,
+  // modules: {
+  //   user,
+  //   permission,
+  // },
 });

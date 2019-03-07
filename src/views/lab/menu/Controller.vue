@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script lang="ts" src="./menuController.ts">
+<script lang="ts" src="./Controller.ts">
 </script>
 
 <style lang="stylus" scoped>

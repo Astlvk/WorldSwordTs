@@ -16,7 +16,9 @@
 import { Component, Vue } from 'vue-property-decorator';
 import LabAsideMenuItem from './LabAsideMenuItem.vue';
 import * as userApi from '@/data-api/lab/user-api';
-import UserMenu from '@/entity/lab/UserMenu';
+import RouteMap from '@/type/lab/RouteMap';
+import { getModule } from 'vuex-module-decorators';
+import UserState from '@/store/modules/User';
 
 @Component({
   name: 'LabAsideMenu',
@@ -25,20 +27,9 @@ import UserMenu from '@/entity/lab/UserMenu';
   },
 })
 export default class LabAsideMenu extends Vue {
-  private menus: UserMenu[] = [];
-  private test: string = 'hi wind';
-
-  private created(): void {
-    // this.menus = this.getMenu();
-    this.getMenuByHttp();
-  }
-
-  private getMenu(): UserMenu[] {
-    return userApi.getMenu();
-  }
-
-  private async getMenuByHttp(): Promise<void> {
-   this.menus = await userApi.getMenuByHttp();
+  private get menus(): RouteMap[] {
+    const menus = getModule(UserState).routeMap;
+    return menus === null ? [] : menus;
   }
 }
 </script>
