@@ -6,16 +6,22 @@ import { Route, RawLocation } from 'vue-router';
 import { getModule } from 'vuex-module-decorators';
 import UserState from '@/store/modules/User';
 import PermissionState from '@/store/modules/Permission';
+import NProgress from 'nprogress'; // progress bar
+import 'nprogress/nprogress.css'; // progress bar style
 
-const whiteList: string[] = ['/login', '/home', '/about', '/list'];
+NProgress.configure({ showSpinner: false }); // NProgress Configuration
+
+const whiteList: string[] = ['/login', '/home', '/about'];
 
 router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((vm: Vue) => any) | void) => void) => {
+  NProgress.start(); // start progress bar
   window.console.log(to.path);
   const userState = getModule(UserState);
   const permissionState = getModule(PermissionState);
   if (userState.token) {// 存在token表示已登录
     if (to.path === '/login') {
       next('/');
+      NProgress.done();
     } else {
       // 这里构建异步路由
       // 判断是否存在已构建的路由表
@@ -37,6 +43,11 @@ router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((v
       next();
     } else {
       next(`/login?redirect=${to.path}`);
+      NProgress.done();
     }
   }
+});
+
+router.afterEach(() => {
+  NProgress.done(); // finish progress bar
 });
