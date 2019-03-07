@@ -51,13 +51,13 @@ export default class Permission extends VuexModule {
       // const routeMap: RouteConfig[] = this.asyncRouteMapfilter(data);
       const asyncRouteMap: RouteConfig[] = asyncRouteMapFilter(data);
       const labRoute: RouteConfig[] = [{
-        path: '/',
+        path: '/lab',
         name: 'Lab',
-        redirect: '/list',
+        redirect: '/lab/list',
         component: () => import('@/views/lab/layout/Lab.vue'),
         children: asyncRouteMap,
       }];
-      window.console.log(JSON.stringify(asyncRouteMap));
+      window.console.log(labRoute);
       this.SET_LAB_ADD_ROUTE(asyncRouteMap);
       this.SET_LAB_ROUTE(labRoute);
       resolve(labRoute);

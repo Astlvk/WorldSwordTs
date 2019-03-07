@@ -30,7 +30,7 @@ import RouteMap from '@/type/lab/RouteMap';
 export default class LabAsideMenuItem extends Vue {
   @Prop({type: Array, default: []})
   private menus!: RouteMap[];
-  @Prop({type: String, default: ''})
+  @Prop({type: String, default: '/lab'})
   private basePath!: '';
 
   private created(): void {

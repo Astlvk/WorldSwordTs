@@ -34,7 +34,7 @@ export default new Router({
     // },
     // Lab下的登陆组件
     {
-      path: '/login',
+      path: '/lab/login',
       name: 'Login',
       component: () => import('@/views/lab/login/Login.vue'),
     },
