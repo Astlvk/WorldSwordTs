@@ -36,15 +36,28 @@ export default class Login extends Vue {
    * 登录函数
    */
   private async login(): Promise<any> {
-    const res = await getUserInfo(this.user);
-    const data = res.data;
-    if (data.token === 'no token') {
-      this.$message.error('用户名密码错误');
-    } else {
-      // login success
-      getModule(UserState).SET_TOKEN(data.token);
-      sessionStorage.setItem('token', data.token);
-      this.$router.push('/');
+    const loading = this.$loading({
+      lock: true,
+      text: 'Logging....',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)',
+    });
+    try {
+      const res = await getUserInfo(this.user);
+      const data = res.data;
+      if (data.token === 'no token') {
+        this.$message.error('用户名密码错误');
+      } else {
+        // login success
+        getModule(UserState).SET_TOKEN(data.token);
+        sessionStorage.setItem('token', data.token);
+        this.$router.push('/');
+      }
+      loading.close();
+    } catch (error) {
+      window.console.error(error);
+      this.$message.error(JSON.stringify(error));
+      loading.close();
     }
   }
 }
