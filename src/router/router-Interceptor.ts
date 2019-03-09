@@ -8,14 +8,18 @@ import 'nprogress/nprogress.css'; // progress bar style
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const whiteList: string[] = ['/login', '/home', '/about'];
+const whiteList: string[] = ['/lab/login', '/home', '/about'];
 
 router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((vm: Vue) => any) | void) => void) => {
+  // window.console.log(to.path);
   const projectPath = to.path.split('/')[1];
+  // window.console.log(projectPath);
   switch (projectPath) {
     case 'lab':
       LabHandler(router, whiteList, to, from, next);
       break;
+    default:
+      next();
   }
 });
 
