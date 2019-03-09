@@ -51,7 +51,7 @@ export default class Login extends Vue {
         // login success
         getModule(UserState).SET_TOKEN(data.token);
         sessionStorage.setItem('token', data.token);
-        this.$router.push('/');
+        this.$router.push('/lab');
       }
       loading.close();
     } catch (error) {
