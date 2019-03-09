@@ -11,12 +11,12 @@ export default class UserState extends VuexModule {
   public routeMap: RouteMap[] | null = null;
 
   @Mutation
-  public SET_TOKEN(token: string): void {
+  public SET_TOKEN(token: string | null): void {
     this.token = token;
   }
 
   @Mutation
-  public SET_USER_MENUS(routeMap: RouteMap[]): void {
+  public SET_USER_MENUS(routeMap: RouteMap[] | null): void {
     this.routeMap = routeMap;
   }
 
