@@ -5,10 +5,10 @@
           <LabAsideMenu name="LabAsideMenu"></LabAsideMenu>
         </el-aside>
         <el-container class="main-container">
-          <el-header>
+          <el-header class="header">
             <LabHeader name="LabHeader"></LabHeader>
           </el-header>
-          <el-main>
+          <el-main class="main">
             <LabContainer name="LabContainer"></LabContainer>
           </el-main>
         </el-container>
@@ -34,6 +34,10 @@ export default class Lab extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
+.header
+  padding: 0 0;
+.main
+  padding 0 20px;  
 aside-width = 200px;
 .main-container
   height: 100vh;
