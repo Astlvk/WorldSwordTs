@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar style="height: 100%;">
+  <el-scrollbar style="height: 100%;" wrap-style="overflow-x: auto;">
     <el-menu
       :default-active="$route.path"
       :router="true"
