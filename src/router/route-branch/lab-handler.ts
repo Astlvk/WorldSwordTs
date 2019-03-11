@@ -2,8 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import { Route, RawLocation } from 'vue-router';
 import { getModule } from 'vuex-module-decorators';
-import UserState from '@/store/modules/User';
-import PermissionState from '@/store/modules/Permission';
+import UserState from '@/store/lab/User';
+import PermissionState from '@/store/lab/Permission';
 import NProgress from 'nprogress'; // progress bar
 
 export default class LabHandler {

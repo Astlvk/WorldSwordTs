@@ -1,6 +1,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import { getUserInfo } from '@/data-api/lab/user-api';
-import UserState from '@/store/modules/User';
+import UserState from '@/store/lab/User';
 import { getModule } from 'vuex-module-decorators';
 
 interface UsreInfo {

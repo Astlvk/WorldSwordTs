@@ -18,7 +18,7 @@ import LabAsideMenuItem from './LabAsideMenuItem.vue';
 import * as userApi from '@/data-api/lab/user-api';
 import RouteMap from '@/type/lab/RouteMap';
 import { getModule } from 'vuex-module-decorators';
-import UserState from '@/store/modules/User';
+import UserState from '@/store/lab/User';
 
 @Component({
   name: 'LabAsideMenu',
