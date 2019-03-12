@@ -23,7 +23,8 @@ export default class LabHandler {
       } else {
         // 这里构建异步路由
         // 判断是否存在已构建的路由表
-        const routeMap = permissionState.labAddRoute;
+        const routeMap = permissionState.labRoute;
+        window.console.log(routeMap);
         if (routeMap.length === 0) {
           // 获取服务端存储的路由表
           userState.GetUserRouteMap().then((userRouteMap) => { // 获取成功后开始构建
