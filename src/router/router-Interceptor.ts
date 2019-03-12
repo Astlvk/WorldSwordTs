@@ -9,9 +9,9 @@ import 'nprogress/nprogress.css'; // progress bar style
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((vm: Vue) => any) | void) => void) => {
-  window.console.log(to.path);
+  window.console.log('route path: ', to.path);
   const projectPath = to.path.split('/')[1];
-  window.console.log(projectPath);
+  window.console.log('route root path: ', projectPath);
   switch (projectPath) {
     case 'lab':
       const labHandler = new LabHandler();
