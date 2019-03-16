@@ -36,7 +36,7 @@ export default new Router({
     {
       path: '/lab/login',
       name: 'Login',
-      component: () => import('@/views/lab/login/Login.vue'),
+      component: () => import(/* webpackChunkName: "lab-login" */ '@/views/lab/login/Login.vue'),
     },
   ],
 });
