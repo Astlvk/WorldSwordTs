@@ -31,6 +31,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { logout } from '@/data-api/lab/user-api';
+import UserState from '@/store/lab/User';
+import { getModule } from 'vuex-module-decorators';
 
 @Component({
   name: 'LabHeader',
@@ -38,8 +41,21 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class LabHeader extends Vue {
   private msg: string = 'This is Lab root';
 
-  private logout(): void {
-    window.console.log('logout');
+  /**
+   * 退出
+   */
+  private async logout(): Promise<void> {
+    const userState = getModule(UserState);
+    const token = userState.token;
+    try {
+      const res = await logout(token!);
+      userState.SET_TOKEN(null);
+      sessionStorage.removeItem('token');
+      this.$router.push('lab');
+    } catch (error) {
+      window.console.log(error);
+      this.$message.error(JSON.stringify(error));
+    }
   }
 }
 </script>

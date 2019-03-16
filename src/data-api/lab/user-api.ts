@@ -2,6 +2,9 @@ import request from '../request';
 import RouteMap from '@/type/lab/RouteMap';
 import { AxiosResponse, AxiosPromise } from 'axios';
 
+/**
+ * 获取用户路由表接口
+ */
 export function getRouteMapByHttp(): Promise<RouteMap[]> {
   return new Promise((resolve, reject) => {
     const routeMap: RouteMap[] = [
@@ -68,6 +71,20 @@ export function getRouteMapByHttp(): Promise<RouteMap[]> {
   });
 }
 
+/**
+ * 登录接口
+ * @param param
+ */
 export function getUserInfo(param: object): AxiosPromise {
-  return request.post('lab/userinfo', param);
+  return request.post('lab/login', param);
 }
+
+/**
+ * 退出接口
+ * @param token
+ */
+export function logout(token: string): AxiosPromise {
+  return request.delete('lab/logout');
+}
+
+

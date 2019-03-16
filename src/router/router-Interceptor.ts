@@ -12,6 +12,8 @@ router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | ((v
   window.console.log('route path: ', to.path);
   const projectPath = to.path.split('/')[1];
   window.console.log('route root path: ', projectPath);
+  // 存储对应当前组件的path标识, 用于axios在请求拦截器中判断当前请求从属于哪个组件
+  sessionStorage.setItem('rootPath', projectPath);
   switch (projectPath) {
     case 'lab':
       const labHandler = new LabHandler();

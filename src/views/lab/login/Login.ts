@@ -49,8 +49,8 @@ export default class Login extends Vue {
         this.$message.error('用户名密码错误');
       } else {
         // login success
+        sessionStorage.setItem('lab-token', data.token);
         getModule(UserState).SET_TOKEN(data.token);
-        sessionStorage.setItem('token', data.token);
         this.$router.push('/lab');
       }
       loading.close();

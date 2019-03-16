@@ -46,6 +46,13 @@ const Axios: AxiosInstance = axios.create(config);
 Axios.interceptors.request.use(
   (cfg) => {
     // Do something before request is sent
+    // ------- 根据不同的集成project的路径携带其token -------
+    const flag: string = `${sessionStorage.getItem('rootPath')}-token`;
+    const token: string | null = sessionStorage.getItem(flag);
+    if (token !== null) { // 存在对应的toekn, 则请求带上该token
+      cfg.headers.Authorization = token;
+    }
+    // ------- 根据不同的集成project的路径携带其token -------
     const source: CancelTokenSource = CancelToken.source();
     cfg.cancelToken = source.token;
     const key: string = cfg.baseURL! + cfg.url! + '&' + cfg.method!;

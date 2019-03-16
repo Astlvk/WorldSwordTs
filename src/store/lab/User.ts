@@ -7,7 +7,7 @@ import { getRouteMapByHttp } from '@/data-api/lab/user-api';
 // @Module({ store, name: 'userState'})
 @Module({ dynamic: true, store, name: 'userState' })
 export default class UserState extends VuexModule {
-  public token: string | null = sessionStorage.getItem('token');
+  public token: string | null = sessionStorage.getItem('lab-token');
   public routeMap: RouteMap[] | null = null;
 
   @Mutation

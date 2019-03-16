@@ -15,7 +15,6 @@ export default class LabHandler {
     NProgress.start();
     const userState = getModule(UserState);
     const permissionState = getModule(PermissionState);
-    userState.SET_TOKEN(sessionStorage.getItem('token'));
     if (userState.token) {// 存在token表示已登录
       if (to.path === '/lab/login') {
         next('/lab');
