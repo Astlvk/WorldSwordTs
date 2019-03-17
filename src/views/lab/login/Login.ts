@@ -51,7 +51,13 @@ export default class Login extends Vue {
         // login success
         sessionStorage.setItem('lab-token', data.token);
         getModule(UserState).SET_TOKEN(data.token);
-        this.$router.push('/lab');
+        // 判断是否带有想要去的页面的重定向信息
+        let path = '/lab';
+        const redirect = this.$route.query.redirect as string | undefined;
+        if (redirect !== undefined) { // 有的话登录后直接导航到重定向的地址
+          path = redirect as string;
+        }
+        this.$router.push(path);
       }
       loading.close();
     } catch (error) {
