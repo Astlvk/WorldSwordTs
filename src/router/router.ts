@@ -32,6 +32,32 @@ export default new Router({
         },
       ],
     },
+    {
+      path: '/test',
+      name: 'RouterTest',
+      redirect: '/test/c0',
+      component: () => import('@/components/RouterTest.vue'),
+      children: [
+        {
+          path: 'c0',
+          name: 'c0',
+          component: () => import('@/components/Ctest0.vue'),
+        },
+      ],
+    },
+    {
+      path: '/test2',
+      name: 'RouterTest',
+      redirect: '/test2/c1',
+      component: () => import('@/components/RouterTest.vue'),
+      children: [
+        {
+          path: 'c1',
+          name: 'c1',
+          component: () => import('@/components/Ctest.1.vue'),
+        },
+      ],
+    },
     // Lab下的登陆组件
     {
       path: '/lab/login',
