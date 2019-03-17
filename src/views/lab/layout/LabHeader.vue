@@ -50,8 +50,8 @@ export default class LabHeader extends Vue {
     try {
       const res = await logout(token!);
       userState.SET_TOKEN(null);
-      sessionStorage.removeItem('token');
-      this.$router.push('lab');
+      sessionStorage.removeItem('lab-token');
+      this.$router.push('/lab/login');
     } catch (error) {
       window.console.log(error);
       this.$message.error(JSON.stringify(error));
